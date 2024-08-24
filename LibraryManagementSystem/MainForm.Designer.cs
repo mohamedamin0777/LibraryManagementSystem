@@ -37,6 +37,7 @@ namespace LibraryManagementSystem
             this.bn_Close = new DevExpress.XtraEditors.SimpleButton();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAddPerson = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.logout_btn = new System.Windows.Forms.Button();
             this.returnBooks_btn = new System.Windows.Forms.Button();
@@ -62,7 +63,7 @@ namespace LibraryManagementSystem
             this.pn_top.Controls.Add(this.label2);
             this.pn_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_top.Location = new System.Drawing.Point(0, 0);
-            this.pn_top.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pn_top.Margin = new System.Windows.Forms.Padding(4);
             this.pn_top.Name = "pn_top";
             this.pn_top.Size = new System.Drawing.Size(1283, 43);
             this.pn_top.TabIndex = 0;
@@ -73,7 +74,7 @@ namespace LibraryManagementSystem
             this.btn_Max.Appearance.Options.UseFont = true;
             this.btn_Max.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_Max.ImageOptions.SvgImage")));
             this.btn_Max.Location = new System.Drawing.Point(1161, -1);
-            this.btn_Max.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Max.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Max.Name = "btn_Max";
             this.btn_Max.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btn_Max.Size = new System.Drawing.Size(50, 38);
@@ -84,7 +85,7 @@ namespace LibraryManagementSystem
             // 
             this.btn_min.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_min.ImageOptions.Image")));
             this.btn_min.Location = new System.Drawing.Point(1104, -1);
-            this.btn_min.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_min.Margin = new System.Windows.Forms.Padding(4);
             this.btn_min.Name = "btn_min";
             this.btn_min.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btn_min.Size = new System.Drawing.Size(50, 38);
@@ -94,7 +95,7 @@ namespace LibraryManagementSystem
             // 
             this.bn_Close.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bn_Close.ImageOptions.Image")));
             this.bn_Close.Location = new System.Drawing.Point(1218, -1);
-            this.bn_Close.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bn_Close.Margin = new System.Windows.Forms.Padding(4);
             this.bn_Close.Name = "bn_Close";
             this.bn_Close.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.bn_Close.Size = new System.Drawing.Size(50, 38);
@@ -117,6 +118,7 @@ namespace LibraryManagementSystem
             // 
             this.panel2.BackColor = System.Drawing.Color.Purple;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnAddPerson);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.logout_btn);
             this.panel2.Controls.Add(this.returnBooks_btn);
@@ -127,10 +129,28 @@ namespace LibraryManagementSystem
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 43);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(256, 695);
             this.panel2.TabIndex = 1;
+            // 
+            // btnAddPerson
+            // 
+            this.btnAddPerson.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddPerson.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnAddPerson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPerson.ForeColor = System.Drawing.Color.White;
+            this.btnAddPerson.Image = global::LibraryManagementSystem.Properties.Resources.icons8_book_32px;
+            this.btnAddPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPerson.Location = new System.Drawing.Point(9, 353);
+            this.btnAddPerson.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.Size = new System.Drawing.Size(233, 55);
+            this.btnAddPerson.TabIndex = 8;
+            this.btnAddPerson.Text = "ADD PERSON";
+            this.btnAddPerson.UseVisualStyleBackColor = true;
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
             // 
             // label4
             // 
@@ -153,11 +173,12 @@ namespace LibraryManagementSystem
             this.logout_btn.ForeColor = System.Drawing.Color.White;
             this.logout_btn.Image = global::LibraryManagementSystem.Properties.Resources.icons8_logout_rounded_up_filled_20px;
             this.logout_btn.Location = new System.Drawing.Point(9, 642);
-            this.logout_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logout_btn.Margin = new System.Windows.Forms.Padding(4);
             this.logout_btn.Name = "logout_btn";
             this.logout_btn.Size = new System.Drawing.Size(41, 43);
             this.logout_btn.TabIndex = 6;
             this.logout_btn.UseVisualStyleBackColor = true;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
             // returnBooks_btn
             // 
@@ -168,8 +189,8 @@ namespace LibraryManagementSystem
             this.returnBooks_btn.ForeColor = System.Drawing.Color.White;
             this.returnBooks_btn.Image = global::LibraryManagementSystem.Properties.Resources.icons8_return_32px_3;
             this.returnBooks_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.returnBooks_btn.Location = new System.Drawing.Point(9, 416);
-            this.returnBooks_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.returnBooks_btn.Location = new System.Drawing.Point(9, 479);
+            this.returnBooks_btn.Margin = new System.Windows.Forms.Padding(4);
             this.returnBooks_btn.Name = "returnBooks_btn";
             this.returnBooks_btn.Size = new System.Drawing.Size(233, 55);
             this.returnBooks_btn.TabIndex = 5;
@@ -186,8 +207,8 @@ namespace LibraryManagementSystem
             this.Borrowed_Btn.ForeColor = System.Drawing.Color.White;
             this.Borrowed_Btn.Image = global::LibraryManagementSystem.Properties.Resources.icons8_book_32px_1;
             this.Borrowed_Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Borrowed_Btn.Location = new System.Drawing.Point(9, 353);
-            this.Borrowed_Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Borrowed_Btn.Location = new System.Drawing.Point(9, 416);
+            this.Borrowed_Btn.Margin = new System.Windows.Forms.Padding(4);
             this.Borrowed_Btn.Name = "Borrowed_Btn";
             this.Borrowed_Btn.Size = new System.Drawing.Size(233, 55);
             this.Borrowed_Btn.TabIndex = 4;
@@ -205,7 +226,7 @@ namespace LibraryManagementSystem
             this.addBooks_btn.Image = global::LibraryManagementSystem.Properties.Resources.icons8_book_32px;
             this.addBooks_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addBooks_btn.Location = new System.Drawing.Point(9, 290);
-            this.addBooks_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addBooks_btn.Margin = new System.Windows.Forms.Padding(4);
             this.addBooks_btn.Name = "addBooks_btn";
             this.addBooks_btn.Size = new System.Drawing.Size(233, 55);
             this.addBooks_btn.TabIndex = 3;
@@ -223,7 +244,7 @@ namespace LibraryManagementSystem
             this.dashboard_btn.Image = global::LibraryManagementSystem.Properties.Resources.icons8_dashboard_32px;
             this.dashboard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashboard_btn.Location = new System.Drawing.Point(9, 228);
-            this.dashboard_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dashboard_btn.Margin = new System.Windows.Forms.Padding(4);
             this.dashboard_btn.Name = "dashboard_btn";
             this.dashboard_btn.Size = new System.Drawing.Size(233, 55);
             this.dashboard_btn.TabIndex = 2;
@@ -247,7 +268,7 @@ namespace LibraryManagementSystem
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(68, 34);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(117, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -259,7 +280,7 @@ namespace LibraryManagementSystem
             this.pn_Container.BackColor = System.Drawing.Color.White;
             this.pn_Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Container.Location = new System.Drawing.Point(256, 43);
-            this.pn_Container.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pn_Container.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Container.Name = "pn_Container";
             this.pn_Container.Size = new System.Drawing.Size(1027, 695);
             this.pn_Container.TabIndex = 2;
@@ -280,7 +301,7 @@ namespace LibraryManagementSystem
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pn_top);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
@@ -312,5 +333,6 @@ namespace LibraryManagementSystem
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private DevExpress.XtraEditors.SimpleButton btn_Max;
         private DevExpress.XtraEditors.SimpleButton btn_min;
+        private System.Windows.Forms.Button btnAddPerson;
     }
 }

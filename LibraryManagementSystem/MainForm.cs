@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagementSystem
 {
     public partial class MainForm : Form
     {
+        private readonly LoginForm loginForm = new LoginForm();
         private readonly Dashboard dashboard = new Dashboard(); 
-        private readonly AddBooks addBooks = new AddBooks();
+        private readonly AddBooksForm addBooks = new AddBooksForm();
         private readonly BorrowedBooks borrowedBooks = new BorrowedBooks();
         private readonly  ReturnBooks returnBooks = new ReturnBooks();  
+        private readonly AddPerson addPerson = new AddPerson();
 
         public MainForm()
         {
@@ -29,16 +24,20 @@ namespace LibraryManagementSystem
         }
         private void dashboard_btn_Click(object sender, EventArgs e)
           =>DisplayForms<Dashboard>(dashboard); 
+
         private void MainForm_Load(object sender, EventArgs e)
             => DisplayForms<Dashboard>(dashboard);
+
         private void bn_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
         private void addBooks_btn_Click(object sender, EventArgs e)
-            => DisplayForms<AddBooks>(addBooks);
+            => DisplayForms<AddBooksForm>(addBooks);
+
         private void Borrowed_Btn_Click(object sender, EventArgs e)
             => DisplayForms<BorrowedBooks>(borrowedBooks);
+
         private void returnBooks_btn_Click(object sender, EventArgs e)
          =>DisplayForms<ReturnBooks> (returnBooks);
 
@@ -53,6 +52,15 @@ namespace LibraryManagementSystem
                 WindowState = FormWindowState.Normal;   
             }
         }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+            => DisplayForms<AddPerson>(addPerson);
     }
 }
 

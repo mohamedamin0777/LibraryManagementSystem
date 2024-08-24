@@ -19,7 +19,7 @@ namespace LibraryManagementSystem.Model
             [Required(ErrorMessage = "Author Is Required"), MaxLength(25)]
             public string Author { set; get; }
   
-            public DateTime Published { set; get; } =DateTime.Now;  
+            public DateTime Published { set; get; }
 
             public string image { set; get; }
             public  int  Count { get; set; }
