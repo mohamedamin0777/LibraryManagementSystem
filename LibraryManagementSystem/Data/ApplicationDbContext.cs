@@ -10,10 +10,10 @@ namespace LibraryManagementSystem.Data
             
         }
 
-        public  DbSet<User> Users { get; set; }
-        public  DbSet<Person> Persons { get; set; }
-        public  DbSet<BorrowedBook> BorrowedBooks { get; set; }
-        public  DbSet<Book> Books { get; set; }
-        
+        public virtual  DbSet<User> Users { get; set; }
+        public virtual DbSet<Person> Persons { get; set; }
+        public virtual DbSet<BorrowedBook> BorrowedBooks { get; set; }
+        public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
     }
 }

@@ -18,8 +18,10 @@ namespace LibraryManagementSystem
         private void AddPerson_Load(object sender, EventArgs e)
         {
             dataGridView1.ColumnCount = 4;
-            dataGridView1.Columns[0].Name = "Id";
-            dataGridView1.Columns[0].HeaderText = "Id";
+   
+            dataGridView1.Columns[0].Name = "ID";
+            dataGridView1.Columns[0].HeaderText = "ID";
+            dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Name = "Name";
             dataGridView1.Columns[1].HeaderText = "Name";
             dataGridView1.Columns[2].Name = "Address";
@@ -37,7 +39,7 @@ namespace LibraryManagementSystem
             foreach (var person in people)
             {
 
-                dataGridView1.Rows.Add(new string[] { person.ID.ToString(), person.Name, person.Address, person.phone});
+                dataGridView1.Rows.Add(new string[] { person.ID.ToString() ,   person.Name, person.Address, person.phone});
             }
 
         }

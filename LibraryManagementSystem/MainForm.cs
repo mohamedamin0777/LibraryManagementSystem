@@ -1,45 +1,73 @@
-﻿using System;
+﻿using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Model;
+using System;
 using System.Windows.Forms;
 
 namespace LibraryManagementSystem
 {
     public partial class MainForm : Form
     {
-        private readonly LoginForm loginForm = new LoginForm();
-        private readonly Dashboard dashboard = new Dashboard(); 
-        private readonly AddBooksForm addBooks = new AddBooksForm();
-        private readonly BorrowedBooks borrowedBooks = new BorrowedBooks();
-        private readonly  ReturnBooks returnBooks = new ReturnBooks();  
-        private readonly AddPerson addPerson = new AddPerson();
+        private AddBooksForm addBooks;
+        private LoginForm loginForm = new LoginForm();
+        private Registeration registerationForm = new Registeration();
+        private Dashboard dashboard = new Dashboard(); 
+        private BorrowedBooks borrowedBooks;
+        private ReturnBooks returnBooks;  
+        private AddPerson addPerson;
+        private ApplicationDbContext _context = new ApplicationDbContext(); 
+        public string Name {get { return greet_label.Text;}set{ greet_label.Text = value;} }
 
-        public MainForm()
+        public static User User { get; set; }
+
+
+        public MainForm(User user)
         {
+            
             InitializeComponent();
+            User = user;
         }
 
-        private void DisplayForms<T>(T control) where T : UserControl
+        private void DisplayForms<T>(T control) where T : UserControl 
         {
             pn_Container.Controls.Clear();
             pn_Container.Controls.Add(control);
         }
         private void dashboard_btn_Click(object sender, EventArgs e)
-          =>DisplayForms<Dashboard>(dashboard); 
+        {
+            dashboard = new Dashboard();
+            DisplayForms(dashboard);
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
-            => DisplayForms<Dashboard>(dashboard);
+        {
+            DisplayForms<Dashboard>(dashboard);
+            if (User.Roles.ID == 2)
+                Add_account.Visible = true;
+            else
+                Add_account.Visible = false;
+        }
 
         private void bn_Close_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
         private void addBooks_btn_Click(object sender, EventArgs e)
-            => DisplayForms<AddBooksForm>(addBooks);
+        {
+            addBooks = new AddBooksForm();
+            DisplayForms(addBooks);
+        }
 
         private void Borrowed_Btn_Click(object sender, EventArgs e)
-            => DisplayForms<BorrowedBooks>(borrowedBooks);
+        {
+            borrowedBooks = new BorrowedBooks();
+            DisplayForms(borrowedBooks);
+        }
 
         private void returnBooks_btn_Click(object sender, EventArgs e)
-         =>DisplayForms<ReturnBooks> (returnBooks);
+        {
+            returnBooks = new ReturnBooks();
+            DisplayForms(returnBooks);
+        }
 
         private void btn_Max_Click(object sender, EventArgs e)
         {
@@ -60,7 +88,26 @@ namespace LibraryManagementSystem
         }
 
         private void btnAddPerson_Click(object sender, EventArgs e)
-            => DisplayForms<AddPerson>(addPerson);
+        {
+            addPerson = new AddPerson();
+            DisplayForms<AddPerson>(addPerson);
+        }
+
+
+        private void Add_account_Click_1(object sender, EventArgs e) => DisplayForms<Registeration>(registerationForm);
+
+        private void btn_min_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Minimized;
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+            }
+
+        }
     }
 }
 

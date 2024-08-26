@@ -15,6 +15,22 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Track .net developer ITI - %28Beni-Suef%29\CV\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +50,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3CEEE4009425EC4DE98347B63727844134654EDC</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LibraryManagementSystem_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>system_applications_address_book_13034.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
@@ -99,6 +130,32 @@
     <Compile Include="BorrowedBooks.Designer.cs">
       <DependentUpon>BorrowedBooks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202408242031214_Roles.cs" />
+    <Compile Include="Migrations\202408242031214_Roles.Designer.cs">
+      <DependentUpon>202408242031214_Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408242050179_ChangeNameSchemaAndTables.cs" />
+    <Compile Include="Migrations\202408242050179_ChangeNameSchemaAndTables.Designer.cs">
+      <DependentUpon>202408242050179_ChangeNameSchemaAndTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408242052099_SeedRolesAndUsers.cs" />
+    <Compile Include="Migrations\202408242052099_SeedRolesAndUsers.Designer.cs">
+      <DependentUpon>202408242052099_SeedRolesAndUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408250403395_update.cs" />
+    <Compile Include="Migrations\202408250403395_update.Designer.cs">
+      <DependentUpon>202408250403395_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408252141563_deleteUserRoleTable.cs" />
+    <Compile Include="Migrations\202408252141563_deleteUserRoleTable.Designer.cs">
+      <DependentUpon>202408252141563_deleteUserRoleTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408260023203_removeImageUrlFromBookTable.cs" />
+    <Compile Include="Migrations\202408260023203_removeImageUrlFromBookTable.Designer.cs">
+      <DependentUpon>202408260023203_removeImageUrlFromBookTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Roles.cs" />
+    <Compile Include="PasswordHaser.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +183,12 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registeration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Registeration.Designer.cs">
+      <DependentUpon>Registeration.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +228,24 @@
     <EmbeddedResource Include="Migrations\202408231427174_Create_Table.resx">
       <DependentUpon>202408231427174_Create_Table.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408242031214_Roles.resx">
+      <DependentUpon>202408242031214_Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408242050179_ChangeNameSchemaAndTables.resx">
+      <DependentUpon>202408242050179_ChangeNameSchemaAndTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408242052099_SeedRolesAndUsers.resx">
+      <DependentUpon>202408242052099_SeedRolesAndUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408250403395_update.resx">
+      <DependentUpon>202408250403395_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408252141563_deleteUserRoleTable.resx">
+      <DependentUpon>202408252141563_deleteUserRoleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408260023203_removeImageUrlFromBookTable.resx">
+      <DependentUpon>202408260023203_removeImageUrlFromBookTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -175,12 +256,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registeration.resx">
+      <DependentUpon>Registeration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterationForm.resx">
       <DependentUpon>RegisterationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnBooks.resx">
       <DependentUpon>ReturnBooks.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Assets\GettyImages-577674005.webp" />
+    <None Include="LibraryManagementSystem_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -208,9 +294,22 @@
     <Content Include="Assets\icons8_logout_rounded_up_filled_32px.png" />
     <Content Include="Assets\icons8_return_32px_3.png" />
     <Content Include="Assets\pexels-polina-zimmerman-3747468.jpg" />
+    <Content Include="system_applications_address_book_13034.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Books_Directory\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

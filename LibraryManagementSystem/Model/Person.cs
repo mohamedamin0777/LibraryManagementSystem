@@ -14,6 +14,6 @@ namespace LibraryManagementSystem.Model
         public string Address { get; set; }
         [Required(ErrorMessage = "Name is Required"), MaxLength(11)]
         public string phone { get; set; }
-        public virtual ICollection<BorrowedBook> BorrowedBooks { get; set; }
+        public virtual ICollection<BorrowedBook> BorrowedBooks { get; set; } = new List<BorrowedBook>();
     }
 }
