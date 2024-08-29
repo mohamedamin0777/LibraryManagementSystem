@@ -68,24 +68,40 @@ namespace LibraryManagementSystem
                 MessageBox.Show("Please fill in all required fields.");
                 return;
             }
-            User user = new User()
-            {
-                Email = Register_Email.Text,
-                UserName = Register_Name.Text,
-                Password = RegisterPassTxt.Text,
-            };
+            var users = context.Users.FirstOrDefault(u => u.Email == Register_Email.Text);
 
-            if (IsValid(user, out string errorMessage))
+            if (users != null)
             {
-                context.Users.Add(user);
-                context.SaveChanges();
-                MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loginForm.Show();
-                this.Close();
+                MessageBox.Show("Email Is Already Please Change email", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show($"Registration failed: {errorMessage}");
+
+                // Hashing a password
+                string hashedPassword = PasswordHaser.HashPassword(RegisterPassTxt.Text);
+
+                User user = new User()
+                {
+                    Email = Register_Email.Text,
+                    UserName = Register_Name.Text,
+                    Password = hashedPassword,
+                };
+
+
+
+                if (IsValid(user, out string errorMessage))
+                {
+                    context.Users.Add(user);
+                    context.SaveChanges();
+                    MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loginForm.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show($"Registration failed: {errorMessage}");
+                }
+
             }
 
         }

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using LibraryManagementSystem.Data;
-
+using System.Data.Entity;
 namespace LibraryManagementSystem
 {
     public partial class LoginForm : Form
@@ -10,6 +10,7 @@ namespace LibraryManagementSystem
         private ApplicationDbContext context = new ApplicationDbContext();
         private  RegisterationForm registerForm;
         private  MainForm mainForm;
+
 
         public LoginForm()
         {
@@ -35,26 +36,42 @@ namespace LibraryManagementSystem
         {
             txtPassword.PasswordChar = login_showPass.Checked ? '\0' : '*'; 
         }
-
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            if(txtUsername.Text !=  "" && txtPassword.Text != "")
+            if (txtEmail.Text != "" && txtPassword.Text != "")
             {
-                var usernameResult = context.Users.FirstOrDefault(u => u.UserName == txtUsername.Text);
+                var user = context.Users.Include(u => u.Roles).FirstOrDefault(u => u.Email == txtEmail.Text);
 
-                if(usernameResult != null && usernameResult.Password == txtPassword.Text)
+                if (user != null && user.Roles != null)
                 {
-                    mainForm = new MainForm();
-                    mainForm.Show();
-                    this.Close();
+                    string storedHashedPassword = user.Password;
+
+                    bool isPasswordValid = PasswordHaser.VerifyPassword(txtPassword.Text, storedHashedPassword);
+
+                    if (isPasswordValid)
+                    {
+
+                        mainForm = new MainForm(user);
+                        mainForm.Show();
+                        mainForm.Name = $"Welcome, {user.UserName}";
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Email or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Username Or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid Email or Password or not registered by the Admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
+            {
                 MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+     
     }
 }

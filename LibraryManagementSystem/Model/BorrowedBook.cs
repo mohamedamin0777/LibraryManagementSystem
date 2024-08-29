@@ -18,5 +18,8 @@ namespace LibraryManagementSystem.Model
         public DateTime StartBorrow { get; set; } = DateTime.Now;
         [Required]
         public DateTime EndBoorow { get; set; }
+        public  bool IsReturn { get; set; } 
+
+
     }
 }
